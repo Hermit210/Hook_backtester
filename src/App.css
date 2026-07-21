@@ -34,13 +34,7 @@
 }
 
 .app-header {
-  margin-bottom: 20px;
-}
-
-.app-header h1 {
-  font-size: 28px;
-  margin: 0 0 8px;
-  letter-spacing: -0.3px;
+  margin-bottom: 28px;
 }
 
 .muted {
@@ -216,7 +210,7 @@ select:focus-visible {
   border: 1px solid var(--border);
   border-left: 3px solid var(--border);
   border-radius: 6px;
-  padding: 14px 16px;
+  padding: 20px 22px;
   background: var(--bg);
   cursor: pointer;
   font-family: inherit;
@@ -249,7 +243,7 @@ select:focus-visible {
 
 .strategy-card__name {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 21px;
   color: var(--text-primary);
 }
 
@@ -265,7 +259,7 @@ select:focus-visible {
   grid-template-columns: 1fr auto;
   align-items: baseline;
   gap: 12px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .metric-row dt {
@@ -304,7 +298,7 @@ select:focus-visible {
 .trace-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 15px;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -370,10 +364,6 @@ select:focus-visible {
 }
 
 @media (max-width: 720px) {
-  #root {
-    padding: 20px 14px 40px;
-  }
-
   .control-row {
     align-items: stretch;
   }

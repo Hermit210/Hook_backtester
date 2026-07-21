@@ -30,7 +30,7 @@ export function Backtester() {
   return (
     <div className="site-container">
       <header className="app-header">
-        <h1>Hook Economic Backtester</h1>
+        <h1 className="page-title">Hook Economic Backtester</h1>
         <p className="muted">
           Replay a synthetic swap stream through a static-fee baseline and three preset
           Uniswap v4 hook strategies, over the identical event stream, and compare LP

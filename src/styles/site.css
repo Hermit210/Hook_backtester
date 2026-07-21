@@ -179,24 +179,34 @@
 
 /* Home / How It Works shared section rhythm */
 .hero {
-  padding: 72px 0 48px;
+  padding: 88px 0 56px;
 }
 
 .hero h1 {
-  font-size: clamp(30px, 4.4vw, 50px);
-  line-height: 1.1;
-  letter-spacing: -0.6px;
-  margin: 0 0 20px;
-  max-width: 800px;
+  font-size: clamp(34px, 6.4vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -1.2px;
+  margin: 0 0 24px;
+  max-width: 880px;
+  color: var(--text-primary);
+}
+
+/* Shared page-title tier for non-hero page headers (Backtester, How It Works) —
+   a confident secondary scale, one step below the Home hero. */
+.page-title {
+  font-size: clamp(30px, 4.2vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin: 0 0 12px;
   color: var(--text-primary);
 }
 
 .hero__subhead {
   font-size: 17px;
   color: var(--text-secondary);
-  max-width: 640px;
-  line-height: 1.6;
-  margin: 0 0 28px;
+  max-width: 680px;
+  line-height: 1.68;
+  margin: 0 0 30px;
 }
 
 .hero__actions {
@@ -229,30 +239,32 @@
 }
 
 .section {
-  padding: 48px 0;
+  padding: 56px 0;
   border-top: 1px solid var(--border);
 }
 
 .section__eyebrow {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-size: 12px;
   color: var(--accent-teal);
-  margin: 0 0 10px;
+  margin: 0 0 16px;
 }
 
 .section h2 {
-  font-size: 23px;
-  margin: 0 0 14px;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  margin: 0 0 16px;
 }
 
 .section__lead {
   color: var(--text-secondary);
-  font-size: 15px;
-  max-width: 660px;
-  line-height: 1.6;
-  margin: 0 0 24px;
+  font-size: 17px;
+  max-width: 680px;
+  line-height: 1.68;
+  margin: 0 0 36px;
 }
 
 .problem-grid {
@@ -264,33 +276,34 @@
 .problem-grid__item {
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 18px;
+  padding: 24px;
   background: var(--surface);
 }
 
 .problem-grid__item h3 {
-  font-size: 14px;
-  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 10px;
   color: var(--text-primary);
   font-family: var(--font-sans);
 }
 
 .problem-grid__item p {
-  font-size: 13px;
+  font-size: 17px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
 }
 
 .steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
 .step {
   border-left: 2px solid var(--border);
-  padding-left: 16px;
+  padding-left: 18px;
 }
 
 .step__index {
@@ -298,19 +311,20 @@
   color: var(--accent-amber);
   font-size: 13px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .step h3 {
-  font-size: 15px;
-  margin: 0 0 6px;
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0 0 8px;
   color: var(--text-primary);
 }
 
 .step p {
-  font-size: 13px;
+  font-size: 17px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -334,7 +348,7 @@
 .disclosure-callout p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
   max-width: 720px;
 }
@@ -352,10 +366,11 @@
 }
 
 .doc-section p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+  max-width: 720px;
 }
 
 .doc-section p:last-child {
@@ -363,8 +378,9 @@
 }
 
 .doc-section h3 {
-  font-size: 14px;
-  margin: 18px 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 22px 0 10px;
   color: var(--text-primary);
 }
 
@@ -373,11 +389,12 @@
 }
 
 .doc-section ul {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   padding-left: 20px;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
+  max-width: 720px;
 }
 
 .doc-cta {
@@ -389,12 +406,147 @@
   margin-top: 8px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .hero {
-    padding: 48px 0 36px;
+    padding: 64px 0 40px;
   }
 
   .section {
-    padding: 36px 0;
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 0 32px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+
+  .hero__subhead,
+  .section__lead,
+  .problem-grid__item p,
+  .step p,
+  .disclosure-callout p,
+  .doc-section p,
+  .doc-section ul {
+    font-size: 16px;
+  }
+}
+
+.strategy-card__desc {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* FAQ accordion — spans the full section width like the other grids on the page
+   (problem-grid/steps/card-grid); only the answer prose itself is readability-capped,
+   via .faq-item__answer below, not the list/item structure. */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  transition: border-color 150ms ease;
+}
+
+.faq-item--open {
+  border-left-color: var(--accent-amber);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-item__chevron {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  transition: transform 150ms ease, color 150ms ease;
+  flex-shrink: 0;
+}
+
+.faq-item--open .faq-item__chevron {
+  color: var(--accent-amber);
+  transform: rotate(180deg);
+}
+
+.faq-item__answer {
+  padding: 0 20px 20px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 680px;
+}
+
+.faq-item__answer a {
+  color: var(--accent-teal);
+}
+
+/* Flow diagram */
+.flow-diagram {
+  margin-top: 44px;
+}
+
+.flow-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.flow-diagram__desktop {
+  display: block;
+}
+
+.flow-diagram__mobile {
+  display: none;
+}
+
+.flow-diagram text {
+  font-family: var(--font-mono);
+}
+
+.flow-diagram .fd-label {
+  font-size: 13px;
+  fill: var(--text-primary);
+}
+
+.flow-diagram .fd-sublabel {
+  font-size: 10.5px;
+  fill: var(--text-secondary);
+}
+
+.flow-diagram .fd-caption {
+  font-size: 11.5px;
+  fill: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .flow-diagram__desktop {
+    display: none;
+  }
+
+  .flow-diagram__mobile {
+    display: block;
   }
 }

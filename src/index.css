@@ -11,6 +11,8 @@
   --accent-teal: #3fb8af;
   --good: #4ade80;
   --critical: #f87171;
+  --path-baseline: #6c7a8c;
+  --path-violet: #a78bfa;
 
   --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;

@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { generateSwapEvents } from "../engine/dataGenerator";
 import { presetStrategies } from "../engine/strategies";
+import { FlowDiagram } from "../components/FlowDiagram";
+import { Faq } from "../components/Faq";
 
 const PROBLEM_POINTS = [
   {
@@ -87,6 +89,7 @@ export function Home() {
             </div>
           ))}
         </div>
+        <FlowDiagram />
       </section>
 
       <section className="section">
@@ -99,7 +102,7 @@ export function Home() {
                 <span className="strategy-card__index mono">{String(i + 1).padStart(2, "0")}</span>
                 <span className="strategy-card__name">{s.name}</span>
               </div>
-              <p className="muted">{s.description}</p>
+              <p className="muted strategy-card__desc">{s.description}</p>
             </div>
           ))}
         </div>
@@ -115,6 +118,12 @@ export function Home() {
             itself is synthetic. Real Uniswap subgraph integration is the next milestone.
           </p>
         </div>
+      </section>
+
+      <section className="section">
+        <p className="section__eyebrow">FAQ</p>
+        <h2>Questions worth answering upfront.</h2>
+        <Faq />
       </section>
     </div>
   );

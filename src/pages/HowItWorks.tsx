@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { FlowDiagram } from "../components/FlowDiagram";
 
 export function HowItWorks() {
   return (
     <div className="site-container">
       <header className="app-header hero" style={{ paddingBottom: 8 }}>
-        <h1 style={{ fontSize: "clamp(26px, 3.4vw, 38px)" }}>How it works</h1>
+        <h1 className="page-title">How it works</h1>
         <p className="hero__subhead">
           A precise walkthrough of what the backtester actually computes — the data
           generator, each preset strategy's trigger logic, the comparison engine, and what
@@ -82,6 +83,7 @@ export function HowItWorks() {
           fee earned, running cumulative revenue) — the summary numbers are a rollup of
           that trace, not a separate calculation.
         </p>
+        <FlowDiagram detailed />
       </section>
 
       <section className="panel doc-section">
