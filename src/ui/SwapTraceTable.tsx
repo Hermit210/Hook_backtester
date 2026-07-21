@@ -50,7 +50,7 @@ export function SwapTraceTable({ report, selectedStrategyId }: Props) {
                 <td>{formatNumber(row.amountIn, 2)}</td>
                 <td>{row.priceAfter.toFixed(4)}</td>
                 <td>{formatPips(row.feePips)}</td>
-                <td>{row.inRange ? "yes" : "no"}</td>
+                <td className={row.inRange ? "in-range-yes" : "in-range-no"}>{row.inRange ? "yes" : "no"}</td>
                 <td>{formatNumber(row.feeEarned, 4)}</td>
                 <td>{formatNumber(row.cumulativeFeeRevenue, 2)}</td>
               </tr>

@@ -18,15 +18,15 @@ export function SummaryReport({ report, selectedStrategyId, onSelectStrategy }: 
       <h2>Comparison Report</h2>
       <p className="muted">
         Baseline (static 0.30% fee) earned{" "}
-        <strong>{formatNumber(baseline.totalFeeRevenue, 2)}</strong> quote units of fee
-        revenue over {report.eventCount.toLocaleString()} swaps across {report.days} days.
+        <strong className="mono">{formatNumber(baseline.totalFeeRevenue, 2)}</strong> quote units of
+        fee revenue over <span className="mono">{report.eventCount.toLocaleString()}</span> swaps
+        across <span className="mono">{report.days}</span> days.
       </p>
 
       <div className="card-grid">
-        {presetIds.map((id) => {
+        {presetIds.map((id, i) => {
           const result = report.results[id];
           const delta = report.deltas[id];
-          const color = palette.series[id as keyof typeof palette.series];
           const isSelected = id === selectedStrategyId;
 
           return (
@@ -34,39 +34,38 @@ export function SummaryReport({ report, selectedStrategyId, onSelectStrategy }: 
               type="button"
               key={id}
               className={`strategy-card${isSelected ? " strategy-card--selected" : ""}`}
-              style={{ borderColor: isSelected ? color : undefined }}
               onClick={() => onSelectStrategy(id)}
             >
               <div className="strategy-card__header">
-                <span className="dot" style={{ background: color }} />
+                <span className="strategy-card__index mono">{String(i + 1).padStart(2, "0")}</span>
                 <span className="strategy-card__name">{delta.strategyName}</span>
               </div>
 
               <dl className="metric-list">
                 <div className="metric-row">
                   <dt>Fee revenue vs baseline</dt>
-                  <dd style={{ color: delta.feeRevenueDeltaPct >= 0 ? palette.good : palette.critical }}>
+                  <dd className="mono" style={{ color: delta.feeRevenueDeltaPct >= 0 ? palette.good : palette.critical }}>
                     {formatPct(delta.feeRevenueDeltaPct)}
                   </dd>
                 </div>
                 <div className="metric-row">
                   <dt>Volume captured</dt>
-                  <dd>{delta.avgVolumeCapturedPct.toFixed(1)}%</dd>
+                  <dd className="mono">{delta.avgVolumeCapturedPct.toFixed(1)}%</dd>
                 </div>
                 <div className="metric-row">
                   <dt>IL exposure vs baseline</dt>
-                  <dd style={{ color: delta.ilDeltaPct <= 0 ? palette.good : palette.critical }}>
+                  <dd className="mono" style={{ color: delta.ilDeltaPct <= 0 ? palette.good : palette.critical }}>
                     {formatPct(delta.ilDeltaPct)}
                   </dd>
                 </div>
                 <div className="metric-row">
                   <dt>Total fee revenue</dt>
-                  <dd>{formatNumber(result.totalFeeRevenue, 2)}</dd>
+                  <dd className="mono">{formatNumber(result.totalFeeRevenue, 2)}</dd>
                 </div>
                 {result.rebalanceCount > 0 && (
                   <div className="metric-row">
                     <dt>Rebalances</dt>
-                    <dd>{result.rebalanceCount}</dd>
+                    <dd className="mono">{result.rebalanceCount}</dd>
                   </div>
                 )}
               </dl>

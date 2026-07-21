@@ -34,15 +34,16 @@ export function Charts({ report, selectedStrategyId }: Props) {
     price: baselineTrace[i].priceAfter,
   }));
 
-  const selectedColor = palette.series[selectedStrategyId as keyof typeof palette.series];
-
+  const axisTick = { fill: palette.textSecondary, fontSize: 12, fontFamily: "var(--font-mono)" };
   const tooltipStyle = {
-    background: palette.surface1,
+    background: palette.surface,
     border: `1px solid ${palette.border}`,
-    borderRadius: 8,
+    borderRadius: 6,
     color: palette.textPrimary,
     fontSize: 13,
+    fontFamily: "var(--font-mono)",
   };
+  const tooltipLabelStyle = { color: palette.accentAmber, marginBottom: 4 };
 
   return (
     <section className="panel">
@@ -56,29 +57,30 @@ export function Charts({ report, selectedStrategyId }: Props) {
               dataKey="day"
               type="number"
               domain={["dataMin", "dataMax"]}
-              stroke={palette.axis}
-              tick={{ fill: palette.textMuted, fontSize: 12 }}
+              stroke={palette.border}
+              tick={axisTick}
               tickLine={false}
-              label={{ value: "Day", position: "insideBottom", offset: -4, fill: palette.textMuted, fontSize: 12 }}
+              label={{ value: "Day", position: "insideBottom", offset: -4, fill: palette.textSecondary, fontSize: 12 }}
             />
             <YAxis
-              stroke={palette.axis}
-              tick={{ fill: palette.textMuted, fontSize: 12 }}
+              stroke={palette.border}
+              tick={axisTick}
               tickLine={false}
               tickFormatter={(v) => formatNumber(v)}
               width={70}
             />
             <Tooltip
               contentStyle={tooltipStyle}
+              labelStyle={tooltipLabelStyle}
               labelFormatter={(v) => `Day ${v}`}
               formatter={(value, name) => [formatNumber(Number(value), 2), String(name)]}
             />
-            <Legend wrapperStyle={{ color: palette.textSecondary, fontSize: 13 }} />
+            <Legend wrapperStyle={{ color: palette.textSecondary, fontSize: 13, fontFamily: "var(--font-sans)" }} />
             <Line
               type="monotone"
               dataKey="baseline"
               name="Static Fee (baseline)"
-              stroke={palette.series.baseline}
+              stroke={palette.accentTeal}
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -87,7 +89,7 @@ export function Charts({ report, selectedStrategyId }: Props) {
               type="monotone"
               dataKey="selected"
               name={selectedName}
-              stroke={selectedColor}
+              stroke={palette.accentAmber}
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
@@ -97,28 +99,32 @@ export function Charts({ report, selectedStrategyId }: Props) {
       </div>
 
       <h2>Underlying Synthetic Price Path</h2>
-      <p className="muted">Shared across every strategy — the identical event stream each one replays.</p>
-      <div className="chart-wrap">
-        <ResponsiveContainer width="100%" height={200}>
+      <p className="muted">
+        Shared across every strategy — the identical event stream each one replays. Hover to trace it.
+      </p>
+      <div className="chart-wrap chart-wrap--signature">
+        <ResponsiveContainer width="100%" height={260}>
           <LineChart data={chartData} margin={{ top: 8, right: 16, left: 8, bottom: 0 }}>
             <CartesianGrid vertical={false} stroke={palette.gridline} />
             <XAxis
               dataKey="day"
               type="number"
               domain={["dataMin", "dataMax"]}
-              stroke={palette.axis}
-              tick={{ fill: palette.textMuted, fontSize: 12 }}
+              stroke={palette.border}
+              tick={axisTick}
               tickLine={false}
             />
             <YAxis
-              stroke={palette.axis}
-              tick={{ fill: palette.textMuted, fontSize: 12 }}
+              stroke={palette.border}
+              tick={axisTick}
               tickLine={false}
               domain={["auto", "auto"]}
               width={70}
             />
             <Tooltip
               contentStyle={tooltipStyle}
+              labelStyle={tooltipLabelStyle}
+              cursor={{ stroke: palette.accentAmber, strokeWidth: 1, strokeDasharray: "3 3" }}
               labelFormatter={(v) => `Day ${v}`}
               formatter={(value) => [Number(value).toFixed(4), "price"]}
             />
@@ -130,6 +136,7 @@ export function Charts({ report, selectedStrategyId }: Props) {
               strokeWidth={2}
               dot={false}
               isAnimationActive={false}
+              activeDot={{ r: 4, fill: palette.accentAmber, stroke: palette.bg, strokeWidth: 2 }}
             />
           </LineChart>
         </ResponsiveContainer>
