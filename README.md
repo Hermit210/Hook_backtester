@@ -1,5 +1,7 @@
 # Hook Economic Backtester — Prototype
 
+**Live demo: [hook-backtester.vercel.app](https://hook-backtester.vercel.app/)**
+
 A working prototype of an ingest → simulate → compare pipeline for backtesting
 Uniswap v4 hook economics. **This phase runs entirely on synthetic (generated) swap
 data** — real Uniswap subgraph integration is a separate, future milestone.
@@ -8,6 +10,8 @@ Given a synthetic swap stream, the tool replays the *identical* stream through a
 static-fee baseline and three preset v4 hook strategies, and reports LP fee revenue,
 volume capture, and impermanent-loss exposure for each — with a full swap-by-swap
 trace, not just summary numbers.
+
+![Comparison report: three hook strategies vs. the static-fee baseline, with cumulative fee revenue charted over the same 90-day synthetic swap stream](docs/screenshot.png)
 
 ## Running it
 
