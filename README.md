@@ -1,5 +1,7 @@
 # Hook Economic Backtester — Prototype
 
+Hooks batch starrted working on stuff regulated stuff with cohort also .
+
 **Live demo: [hook-backtester.vercel.app](https://hook-backtester.vercel.app/)**
 
 A working prototype of an ingest → simulate → compare pipeline for backtesting
